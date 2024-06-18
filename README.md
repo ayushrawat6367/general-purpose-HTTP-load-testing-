@@ -33,10 +33,11 @@ pip install -r requirements.txt
 
 4. Run the HTTP load tester:
 
-python main.py --url http://example.com --qps 10 --duration 60
---url: The target URL to send requests to.
---qps: Queries Per Second (QPS) rate at which requests will be generated.
---duration: Duration of the test in seconds.
+python main.py python main.py http://example.com --qps 5 --num-requests 20 --interval 5
+http://example.com: URL to test (example)
+--qps 5: Specifies the number of queries per second. In this example, it's set to 5 queries per second.
+--num-requests 20: Defines the total number of requests to be sent during the test. Here, it's set to 20 requests.
+--interval 5: Sets the interval in seconds for reporting the test results. This example uses an interval of 5 seconds
 
 5. Output:
 The script will output statistics such as average latency, minimum latency, maximum latency, percentiles, and error rates.
@@ -51,7 +52,7 @@ docker build -t http-load-tester .
 
 8. Run the Docker container:
 
-docker run http-load-tester --url http://example.com --qps 10 --duration 60
+docker run http-load-tester http://example.com --qps 5 --num-requests 20 --interval 5
 
 This ensures that we have all the necessary tools and dependencies to use and extend the HTTP load-testing library effectively.
 
